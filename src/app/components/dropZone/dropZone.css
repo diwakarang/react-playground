@@ -1,0 +1,8 @@
+.dropZone{
+  float: right;
+  margin-right: 150px;
+  margin-top: 30px;
+  background: white;
+  width: 800px;
+  height: 600px;
+}

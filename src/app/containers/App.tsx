@@ -6,6 +6,7 @@ import {createSelector} from "reselect";
 import {State as IRouteState} from "router5";
 import {stylesheet} from "typestyle";
 import {config as appConfig} from "../../../config";
+import { Sidemenu } from "../components/sidemenu/sidemenu";
 import {setupCss} from "../helpers/setupCss";
 import {Translator} from "../models/Translator";
 import {ITranslator} from "../models/TranslatorInterfaces";
@@ -17,6 +18,8 @@ import {IStore} from "../redux/IStore";
 import {RoutePageMap} from "../routes/routes";
 import {translationsSelector} from "../selectors/translationsSelector";
 import {Header} from "./Header";
+import { FixedSideMenu } from "../components/fixedSideMenu/fixedSideMenu";
+import { DropZone } from "../components/dropZone/dropZone";
 
 setupCss();
 
@@ -46,11 +49,15 @@ class App extends React.Component<IStateToProps> {
     const {route, translations: {notFound}} = this.props;
     const segment = route ? route.name.split(".")[0] : undefined;
     return (
-      <section className={classNames.container}>
-        <Helmet {...appConfig.app.head}/>
-        <Header/>
-        {segment && this.components[segment] ? React.createElement(this.components[segment]) : <div>{notFound}</div>}
-      </section>
+      // <section className={classNames.container}>
+      //   <Helmet {...appConfig.app.head}/>
+      //   <Header/>
+      //   {segment && this.components[segment] ? React.createElement(this.components[segment]) : <div>{notFound}</div>}
+      // </section>
+      <div>
+         <Sidemenu/>
+         <DropZone/>
+      </div>
     );
   }
 }
