@@ -73,7 +73,15 @@ export class Sidemenu extends React.Component {
                           return (
                             <li className={"child-elements-list-item"}>
                               <div
-                                style={{ background: "white", padding: "10px",color:"black" }}
+                                draggable={true}
+                                onDragStart={(...arg) => {
+                                  console.log("Drag Start", { arg });
+                                }}
+                                style={{
+                                  background: "white",
+                                  padding: "10px",
+                                  color: "black"
+                                }}
                               >
                                 <span>{e}</span>
                               </div>
